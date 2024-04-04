@@ -3,7 +3,7 @@ import { Router, RouterModule } from '@angular/router';
 import { RouterOutlet } from '@angular/router';
 import { SHARED_MODULES } from './shared/shard.modules';
 import { UserInterface } from './interface';
-import { AuthService } from './service';
+import { AuthService, ProductService } from './service';
 import { isPlatformBrowser } from '@angular/common';
 
 @Component({
@@ -20,9 +20,11 @@ import { isPlatformBrowser } from '@angular/common';
 export class AppComponent {
   title = 'StoreFront';
   user: UserInterface | null = null;
+  categories: string[] = [];
 
   constructor(
     private authService: AuthService,
+    private productService: ProductService,
     private router: Router,
     @Inject(PLATFORM_ID) private _platformId: Object,
   ) {}
@@ -31,6 +33,9 @@ export class AppComponent {
     if (isPlatformBrowser(this._platformId)) this.authService.setUp()
     this.authService._$user.subscribe((user: UserInterface | null) => {
       this.user = user;
+    });
+    this.productService.getAllCategories().subscribe((categories: string[]) => {
+      this.categories = categories;
     });
   }
 

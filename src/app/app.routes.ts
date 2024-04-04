@@ -1,10 +1,11 @@
 import { Routes } from '@angular/router';
+import { authGuard, noAuthGuard } from './guards';
 import { HomeComponent } from './pages/home/home.component';
 import { ProductComponent } from './pages/product/product.component';
 import { LoginComponent } from './pages/login/login.component';
 import { SignUpComponent } from './pages/sign-up/sign-up.component';
 import { CartComponent } from './pages/cart/cart.component';
-import { authGuard, noAuthGuard } from './guards';
+import { ProductsComponent } from './pages/products/products.component';
 
 export const routes: Routes = [
     {
@@ -31,8 +32,13 @@ export const routes: Routes = [
         title: 'Shopping cart'
     },
     {
-        path: 'product/:id',
+        path: 'product/:product_id',
         component: ProductComponent,
         title: 'Product details'
-    }
+    },
+    {
+        path: 'products/:category',
+        component: ProductsComponent,
+        title: 'Products Category page'
+    },
 ];
