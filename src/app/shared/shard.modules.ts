@@ -17,6 +17,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatCardModule } from '@angular/material/card';
+import { MatBadgeModule } from '@angular/material/badge';
 
 export const SHARED_MODULES = [
     CommonModule,
@@ -38,4 +39,5 @@ export const SHARED_MODULES = [
     MatFormFieldModule,
     MatChipsModule,
     MatCardModule,
+    MatBadgeModule,
 ]

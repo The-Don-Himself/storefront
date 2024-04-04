@@ -11,4 +11,5 @@ import { SHARED_MODULES } from '../../shared/shard.modules';
 })
 export class ProductCardComponent {
   @Input() product!: ProductInterface
+  @Input() showButtons: boolean = false
 }

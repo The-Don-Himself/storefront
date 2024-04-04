@@ -5,7 +5,8 @@
   <span routerLink="/">Store Front</span>
   <span class="toolbar-item-spacer"></span>
   <button mat-icon-button matTooltip="Shopping Cart" routerLink="/cart">
-      <mat-icon>shopping_cart</mat-icon>
+    <mat-icon *ngIf="!number_of_products_in_cart">shopping_cart</mat-icon>
+    <mat-icon *ngIf="number_of_products_in_cart" aria-hidden="false" [matBadge]="number_of_products_in_cart" matBadgeColor="warn">shopping_cart</mat-icon>
   </button>
 </mat-toolbar>
 

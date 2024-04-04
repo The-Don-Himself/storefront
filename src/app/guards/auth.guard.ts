@@ -8,8 +8,8 @@ export const authGuard: CanActivateFn = (route, state) => {
   const authService = inject(AuthService)
   const snackBarService = inject(SnackBarService)
 
-  const user = authService.getUser();
-  if(user) return true
+  const token = authService.getToken();
+  if(token) return true
 
   snackBarService.presentToast('Please Login or Register first', 'warning')
   return router.navigate(['/login'])
