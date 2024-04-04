@@ -16,4 +16,8 @@ export class UserService {
     return this.http.post<any>(`${environment.apiBaseUrl}/users`, userSignupData);
   }
 
+  getUser(user_id: number) {
+    return this.http.get<any>(`${environment.apiBaseUrl}/users/${user_id}`);
+  }
+
 }

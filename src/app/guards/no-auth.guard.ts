@@ -8,8 +8,8 @@ export const noAuthGuard: CanActivateFn = (route, state) => {
   const authService = inject(AuthService)
   const snackBarService = inject(SnackBarService)
 
-  const user = authService.getUser();
-  if(!user) return true
+  const token = authService.getToken();
+  if(!token) return true
 
   snackBarService.presentToast('You are already logged in', 'warning')
   return router.navigate(['/'])

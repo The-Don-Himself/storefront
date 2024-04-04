@@ -3,8 +3,8 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { UserInterface, UserLoginInterface } from '../../interface';
 import { BehaviorSubject } from 'rxjs';
-import { StorageService } from '..';
-import { jwtDecode } from "jwt-decode";
+import { StorageService, UserService } from '..';
+import { jwtDecode, JwtPayload } from "jwt-decode";
 
 const TOKEN_KEY = 'token';
 
@@ -18,6 +18,7 @@ export class AuthService {
   constructor(
     private http: HttpClient,
     private storageService: StorageService,
+    private userService: UserService,
   ) { }
 
   login(userLoginData: UserLoginInterface) {
@@ -31,16 +32,24 @@ export class AuthService {
 
     this.setToken(token);
 
-    const user: UserInterface  = jwtDecode<UserInterface>(token);
-    this.setUser(user);
+    const decodedToken  = jwtDecode<JwtPayload>(token);
+    const user_id: number  = decodedToken.sub as unknown as number;
+
+    this.userService.getUser(user_id).subscribe((user: UserInterface) => {
+      this.setUser(user);
+    });
   }
 
   postLoginToken(token: string) {
     this.storeToken(token);
     this.setToken(token);
 
-    const user: UserInterface  = jwtDecode<UserInterface>(token);
-    this.setUser(user);
+    const decodedToken  = jwtDecode<JwtPayload>(token);
+    const user_id: number  = decodedToken.sub as unknown as number;
+
+    this.userService.getUser(user_id).subscribe((user: UserInterface) => {
+      this.setUser(user);
+    });
   }
 
   storeToken(token: string) {

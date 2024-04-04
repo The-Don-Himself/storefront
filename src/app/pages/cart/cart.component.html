@@ -1,1 +1,11 @@
-<p>cart works!</p>
+<ng-container *ngFor="let cart of carts; index as i">
+    <div mat-subheader>Cart {{ i + 1 }}</div>
+
+    <mat-list>
+        <ng-container *ngFor="let product of cart.products">
+            <app-product-list [product_id]="product.productId"></app-product-list>
+        </ng-container>
+    </mat-list>
+
+    <mat-divider></mat-divider>
+</ng-container>
