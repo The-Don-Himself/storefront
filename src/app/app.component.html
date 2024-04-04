@@ -34,6 +34,17 @@
           </mat-list-item>
         </ng-container>
       </mat-nav-list>
+
+      <mat-divider></mat-divider>
+
+      <div mat-subheader>Categories</div>
+      <mat-nav-list role="list">
+        <mat-list-item *ngFor="let category of categories" role="listitem" routerDirection="root" [routerLink]="['/products', category]">
+          <mat-icon matListItemIcon>category</mat-icon>
+          <div matListItemTitle> {{ category | titlecase }} </div>
+        </mat-list-item>
+      </mat-nav-list>
+
   </mat-sidenav>
   <mat-sidenav-content>
       <router-outlet></router-outlet>
