@@ -1,3 +1,6 @@
 export { AuthService } from "./auth/auth.service"
 export { CartService } from "./cart/cart.service"
+export { LoadingService } from "./loading/loading.service"
+export { SnackBarService } from "./snack-bar/snack-bar.service"
 export { StorageService } from "./storage/storage.service"
+export { UserService } from "./user/user.service"
