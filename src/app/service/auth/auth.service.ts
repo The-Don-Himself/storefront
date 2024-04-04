@@ -35,8 +35,24 @@ export class AuthService {
     this.setUser(user);
   }
 
+  postLoginToken(token: string) {
+    this.storeToken(token);
+    this.setToken(token);
+
+    const user: UserInterface  = jwtDecode<UserInterface>(token);
+    this.setUser(user);
+  }
+
   storeToken(token: string) {
     this.storageService.storeItem(TOKEN_KEY, token);
+  }
+
+  getUser(): UserInterface | null {
+    return this._$user.value;
+  }
+
+  getToken(): string | null {
+    return this._$token.value;
   }
 
   setUser(user: UserInterface | null) {

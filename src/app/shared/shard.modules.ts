@@ -1,4 +1,5 @@
 import { CommonModule } from '@angular/common';  
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // Angular Material
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -14,9 +15,12 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatChipsModule } from '@angular/material/chips';
 
 export const SHARED_MODULES = [
     CommonModule,
+    FormsModule, 
+    ReactiveFormsModule,
     MatButtonModule,
     MatSidenavModule,
     MatMenuModule,
@@ -31,4 +35,5 @@ export const SHARED_MODULES = [
     MatSelectModule,
     MatInputModule,
     MatFormFieldModule,
+    MatChipsModule,
 ]

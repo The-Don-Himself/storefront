@@ -14,22 +14,22 @@
       <mat-nav-list>
         <ng-container *ngIf="!user">
           <mat-list-item routerLink="/login">
-            <mat-icon matListItemIcon>dashboard</mat-icon>
+            <mat-icon matListItemIcon>login</mat-icon>
             <div matListItemTitle> Login </div>
           </mat-list-item>
           <mat-list-item routerLink="/sign-up">
-              <mat-icon matListItemIcon>dashboard</mat-icon>
+              <mat-icon matListItemIcon>lock</mat-icon>
               <div matListItemTitle> Sign Up </div>
           </mat-list-item>
         </ng-container>
 
         <ng-container *ngIf="user">
           <mat-list-item routerLink="/cart">
-            <mat-icon matListItemIcon>cart</mat-icon>
+            <mat-icon matListItemIcon>shopping_cart</mat-icon>
             <div matListItemTitle> My Cart </div>
           </mat-list-item>
           <mat-list-item (click)="logout()">
-              <mat-icon matListItemIcon>dashboard</mat-icon>
+              <mat-icon matListItemIcon>logout</mat-icon>
               <div matListItemTitle> Logout </div>
           </mat-list-item>
         </ng-container>
