@@ -1,0 +1,5 @@
+<div class="masonry">
+    <div class="item" *ngFor="let product of products" routerDirection="root" [routerLink]="['/product', product.id]">
+        <app-product-card [product]="product"></app-product-card>
+    </div>
+</div>

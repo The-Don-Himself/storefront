@@ -1,0 +1,5 @@
+<mat-list-item *ngIf="product">
+    <img matListItemAvatar [src]="product.image" alt="product image">
+    <div matListItemTitle> {{ product.title }} </div>
+    <p matListItemLine> {{ product.price | currency }} </p>
+</mat-list-item>

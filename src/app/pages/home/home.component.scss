@@ -1,0 +1,16 @@
+.masonry {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-gap: 10px;
+    grid-auto-rows: minmax(50px, auto);
+  }
+
+  .item {
+    grid-row-end: span 2;
+  }
+
+  @media screen and (max-width: 600px) {
+    .masonry {
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+  }

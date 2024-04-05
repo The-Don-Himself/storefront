@@ -1,0 +1,26 @@
+<mat-grid-list [cols]="cols$ | async">
+    <mat-grid-tile></mat-grid-tile>
+    <mat-grid-tile>
+        <form [formGroup]="signupForm" (ngSubmit)="submit()" class="form-container">
+            <p>During this exercise, sign-up doesn't actually create a real user so no logging in after sign-up</p>
+
+            <br>
+
+            <mat-form-field>
+                <mat-label>Username</mat-label>
+                <input matInput type="text" formControlName="username">
+            </mat-form-field>
+        
+            <mat-form-field>
+              <mat-label>Enter your password</mat-label>
+              <input matInput formControlName="password" [type]="hide ? 'password' : 'text'">
+              <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </button>
+            </mat-form-field>  
+
+            <button mat-raised-button color="primary" type="submit" [disabled]="!signupForm.valid">Sign Up</button>
+        </form>
+    </mat-grid-tile>
+    <mat-grid-tile></mat-grid-tile>
+</mat-grid-list>
